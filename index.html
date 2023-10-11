@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Label-efficient Segmentation via Affinity Propagation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <!-- Bootstrap -->
+    <link href="./static/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-2 publication-title">Label-efficient Segmentation via Affinity Propagation</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://cslwt.github.io/">Wentong Li</a><sup>1*</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://yuqianyuan.github.io/">Yuqian Yuan</a><sup>1*</sup>,</span>
+                            <span class="author-block">
+                                Song Wang<sup>1</sup>,</span>
+                            <span class="author-block">
+                                Wenyu Liu<sup>1</sup>,</span>
+                            <br>
+                            <span class="author-block">
+                                Dongqi Tang<sup>2</sup>,</span>
+                            <span class="author-block">
+                                Jian Liu<sup>2</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://person.zju.edu.cn/jkzhu">Jianke Zhu</a><sup>1†</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://www4.comp.polyu.edu.hk/~cslzhang/">Lei Zhang</a><sup>3</sup>,</span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>Zhejiang University, </span>
+                            <span class="author-block"><sup>2</sup>Ant Group, </span>
+                            <span class="author-block"><sup>3</sup>The HongKong Polytechnical University</span>
+                        </div>
+                        <div class="is-size-6 publication-authors">
+                            <span class="author-block">(* equal contribution, † corresponding author)</span>
+                          </div>
+                        <h2 style="margin-bottom: 12px; margin-top: 12px; text-align:center; color:#E74B63; font-size: 1.5rem;">NeurIPS 2023</h2>
+                        <!-- <h2 class="is-size-5 is-2 publication-title"> NeurIPS 2023</h2> -->
+                        <!-- <div class="is-size-5 publication-authors">
+                  <span class="author-block"><sup>1</sup>,</span>
+                </div> -->
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <!-- <span class="link-block">
+                                <a href=""
+                                    class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </span>
+                                    <span>Paper</span>
+                                </a>
+                                </span> -->
+                                <span class="link-block">
+                                    <a href=""
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>               
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                                <!-- Dataset Link. -->
+                                <!-- <span class="link-block">
+                                    <a href="https://drive.google.com/drive/folders/1SjWUcuSvYMM5rPPd4aQhK0jo1IHbCJbT?usp=sharing"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fa fa-database"></i>
+                                        </span>
+                                        <span>Dataset</span>
+                                    </a>
+                                </span> -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 动图 -->
+    <table width="60%" align="center">
+        <tr>
+            <td>
+                <img src="visual_demo/1.gif" alt="" width="100%">
+            </td>
+            <td>
+                <img src="visual_demo/2.gif" alt="" width="100%">
+            </td>
+            <td>
+                <img src="visual_demo/3.gif" alt="" width="100%">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="visual_demo/4.gif" alt="" width="100%">
+            </td>
+            <td>
+                <img src="visual_demo/5.gif" alt="" width="100%">
+            </td>
+            <td>
+                <img src="visual_demo/6.gif" alt="" width="100%">
+            </td>
+        </tr>
+
+    </table>
+
+    <section class="hero is-light is-small">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <!-- Abstract. -->
+                <div class="columns is-centered has-text-centered">
+                    <!-- <div class="column is-four-fifths"> -->
+                    <div class="column is-full-width">
+                        <h2 class="title is-3 has-text-centered">Abstract</h2>
+                        <div class="content has-text-justified">
+                            <p>
+                                Weakly-supervised segmentation with label-efficient sparse annotations has attracted increasing 
+                                research attention to reduce the cost of laborious pixel-wise labeling process, while the pairwise 
+                                affinity modeling techniques play an essential role in this task. Most of the existing approaches 
+                                focus on the local appearance kernel to model the neighboring pairwise potentials. However, such a 
+                                local operation fails to capture the long-range dependencies and ignores the objects’ topology. 
+                                In this work, we formulate the affinity modeling task as an <span style="font-weight:bold">affinity propagation process</span>, 
+                                and consequently propose both local and global pairwise affinity terms to generate accurate 
+                                soft pseudo labels. An efficient algorithm is also developed to reduce the computational cost 
+                                significantly. The proposed approach can be conveniently plugged into existing segmentation networks. 
+                                Experiments on three typical label-efficient segmentation tasks, i.e. box-supervised instance segmentation, 
+                                point/scribble-supervised semantic segmentation and CLIP-guided semantic segmentation, demonstrate the superior 
+                                performance of the proposed approach.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Paper video. -->
+            </div>
+    </section>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Method. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered">Problem Overview</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            🌟We propose a method named <b>APro</b>, designed to generate precise soft pseudo labels online for unlabeled 
+                            regions within segmentation networks.
+                            <br>
+                            💡Our <b>APro</b> method can be seamlessly plugged into the existing segmentation networks for various tasks 
+                            to achieve the weakly-supervised segmentation with label-efficient sparse annotations.
+                        </p>
+                    </div>
+                    <div class="columns is-centered has-text-centered">
+                        <div class="column">
+                          <img src="imgs/introduction.gif" alt="">
+                        </div>
+                      </div>
+                    <!-- method -->
+                    <h2 class="title is-3 has-text-centered">Method</h2>
+                      <div class="content has-text-justified">
+                          <p>
+                              We formulate the weakly-supervised segmentation task as a uniform affinity propagation process, including
+                              global affinity propagation and local affinity propagation. 
+                              <br>
+                              <b>The global affinity propagation</b> leverages 
+                              the topology-aware tree-based graph and relaxes the geometric constraints of spanning tree to capture 
+                              the long-range pairwise affinity. With the efficient design, the <i>O(N<sup>2</sup>)</i> complexity of brute force implementation 
+                              is reduced to <i>O(NlogN)</i>, and the global propagation approach can be performed with much less resource consumption 
+                              for practical applications.
+                              <br>
+                              <b>The local affinity propagation</b> is designed to encourage the piece-wise smoothness with spatial consistency.
+                          </p>
+                      </div>
+                      <div class="columns is-centered has-text-centered">
+                          <div class="column">
+                            <img src="imgs/global_local.jpg" width="80%">
+                          </div>
+                        </div>
+
+                        <div class="content has-text-justified">
+                            <p>
+                                An exemplar illustration of the global and local affinity propagation processes is shown below,
+                            </p>
+                        </div>
+                        <div class="columns is-centered has-text-centered">
+                            <div class="column">
+                              <img src="imgs/illustration.jpg" width="80%">
+                            </div>
+                          </div>
+
+                        <div class="content has-text-justified">
+                            <p>
+                                The efficient implementation of global one is shown below,
+                            </p>
+                        </div>
+                        <div class="columns is-centered has-text-centered">
+                            <div class="column">
+                              <img src="imgs/alg.png" width="80%">
+                            </div>
+                          </div>
+                      
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered ">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We perform experiments on three typical label-efficient segmentation tasks, 
+                            <i>i.e.</i> box-supervised instance segmentation, point/scribble-supervised semantic 
+                            segmentation and annotation-free semantic segmentation with pretrained CLIP model, 
+                            and the results demonstrated the superior performance of the proposed approach.
+                        </p>
+
+                    <h3 class="title is-4">Weakly-supervised Instance Segmentation</h3>
+
+                    <div class="columns is-centered has-text-centered">
+                        <div class="column">
+                          <img src="imgs/vis_example.png">
+                        </div>
+                      </div>
+
+                    <h3 class="title is-4">Weakly-supervised Semantic Segmentation</h3>
+
+                      <div class="columns is-centered has-text-centered">
+                          <div class="column">
+                            <img src="imgs/semantic.png">
+                          </div>
+                        </div>
+
+                    <h3 class="title is-4">CLIP-guided Semantic Segmentation</h3>
+
+                        <div class="columns is-centered has-text-centered">
+                            <div class="column">
+                              <img src="imgs/clip.png">
+                            </div>
+                          </div>
+                           
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>
+
+          </code></pre>
+        </div>
+    </section> -->
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="content">
+                    <p>
+                        The template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
